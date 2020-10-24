@@ -1,0 +1,42 @@
+{
+	"deploy.reloaded": {
+        "packages": [
+            {
+                "name": "Powershell Scripts",
+                "description": "Tous les scripts Powershell",
+
+                "files": [
+                    "**/*.ps1"
+                ],
+                "exclude": [
+                ],
+
+				"button": {
+					"text": "Deploy to automation",
+					"color": "button.foreground",
+					"type": "delete",
+					"targets": ["Automation"]
+				},
+
+				"deployOnSave": ["Automation"]
+            }
+		],
+		"targets": [
+            {
+                "type": "local",
+                "name": "Automation",
+                "description": "Le dossier d:\\automation",
+
+                "dir": "D:\\automation"
+            },
+
+            {
+                "type": "sftp",
+                "name": "My network folder",
+                "description": "A SMB shared network folder",
+
+                "dir": "\\\\MyServer\\my_package_files"
+            }
+        ]
+    }
+}

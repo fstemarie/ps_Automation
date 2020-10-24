@@ -1,0 +1,14 @@
+net use \\raktar\Elements  /USER:francois theglacer
+net use \\raktar\MyBook    /USER:francois theglacer
+net use \\raktar\Slim      /USER:francois theglacer
+net use \\raktar\Mauve     /USER:francois theglacer
+net use \\raktar\Tangerine /USER:francois theglacer
+net use \\raktar\Copper    /USER:francois theglacer
+net use \\raktar\Emerald   /USER:francois theglacer
+net use \\raktar\Movies    /USER:francois theglacer
+net use \\raktar\TVShows   /USER:francois theglacer
+net use \\raktar\Videos    /USER:francois theglacer
+net use \\raktar\Music     /USER:francois theglacer
+net use \\raktar\Storage   /USER:francois theglacer
+net use \\raktar\Downloads /USER:francois theglacer
+net use \\raktar\ROMs      /USER:francois theglacer
