@@ -26,17 +26,9 @@
                 "type": "local",
                 "name": "Automation",
                 "description": "Le dossier d:\\automation",
-
                 "dir": "D:\\automation"
             },
 
-            {
-                "type": "sftp",
-                "name": "My network folder",
-                "description": "A SMB shared network folder",
-
-                "dir": "\\\\MyServer\\my_package_files"
-            }
         ]
     }
 }

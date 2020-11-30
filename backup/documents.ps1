@@ -1,8 +1,10 @@
 $source = "D:\Francois\Documents"
 $dest = "box:/backup/Documents"
-rclone sync -P $source $dest
-rclone touch box:/backup/Documents.timestamp
+rclone sync $source $dest -P --exclude .venv/** --delete-excluded
+rclone delete box:/backup/Documents.timestamp
+rclone touch box:/backup/Documents.timestamp --localtime
 
 $dest = "storage:/documents"
-rclone sync -P $source $dest
+rclone sync $source $dest -P --exclude .venv/** --delete-excluded
+rclone delete storage:/Documents.timestamp
 rclone touch storage:/Documents.timestamp
