@@ -14,7 +14,7 @@
 				"button": {
 					"text": "Deploy to automation",
 					"color": "button.foreground",
-					"type": "delete",
+					"type": "deploy",
 					"targets": ["Automation"]
 				},
 
