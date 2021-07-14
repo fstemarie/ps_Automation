@@ -1,29 +1,24 @@
-. D:\automation\tools\Remove-NetworkLocation.ps1
+#-----------------------------------------------------------------------
+#region Enleve une liaison reseau
+function Remove-NetworkLocation {
+	[CmdletBinding()]
+	param (
+		[Parameter(Mandatory)]
+		[string]$Name
+	)
 
-switch ($args[0].ToLower()) {
-	"box" {
-		Start-Transcript -Path 'D:\services\rclone_box\service_stopped.txt' -UseMinimalHeader
-		Write-Output "Removing Box remote"
-		Remove-Item -Force -Path "D:\remotes\Box" -ErrorAction SilentlyContinue
-		Remove-NetworkLocation "+Box"
-		Remove-Item -Force -Path "D:\services\rclone_box\running" -ErrorAction SilentlyContinue
-		Stop-Transcript
-	}
-	"google" {
-		Start-Transcript -Path 'D:\services\rclone_google\service_stopped.txt' -UseMinimalHeader
-		Write-Output "Removing Google remote"
-		Remove-Item -Force -Path "D:\remotes\Google" -ErrorAction SilentlyContinue
-		Remove-NetworkLocation "+Google"
-		Remove-Item -Force -Path "D:\services\rclone_google\running" -ErrorAction SilentlyContinue
-		Stop-Transcript
-	}
-	"onedrive" {
-		Start-Transcript -Path 'D:\services\rclone_onedrive\service_stopped.txt' -UseMinimalHeader
-		Write-Output "Removing OneDrive remote"
-		Remove-Item -Force -Path "D:\remotes\OneDrive" -ErrorAction SilentlyContinue
-		Remove-NetworkLocation "+OneDrive"
-		Remove-Item -Force -Path "D:\services\rclone_onedrive\running" -ErrorAction SilentlyContinue
-		Stop-Transcript
-	}
+	$NlPath = "C:\Users\francois\AppData\Roaming\Microsoft\Windows\Network Shortcuts"
+	$Nl = (Join-Path -Path $NlPath -ChildPath $Name)
+	Remove-Item -Force -Recurse -Path $Nl -ErrorAction SilentlyContinue
 }
-Remove-Item -Path D:\remotes -ErrorAction SilentlyContinue
+#endregion
+
+$service = $args[0].ToLower()
+# Start-Transcript -Path "D:/services/rclone/service_stopped.log" -UseMinimalHeader
+Write-Output "Removing $service remote"
+Remove-NetworkLocation "+$service"
+# Stop-Transcript
+
+# Remove-Item -Force -Path "D:/remotes/$service" -ErrorAction SilentlyContinue
+# Remove-Item -Force -Path "D:/services/rclone/rclone_$service/running" -ErrorAction SilentlyContinue
+# Remove-Item -Path D:\remotes -ErrorAction SilentlyContinue
