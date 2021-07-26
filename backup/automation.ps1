@@ -1,4 +1,3 @@
-
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier Automation sur Box.com
 Write-Host ("-" * 48)
