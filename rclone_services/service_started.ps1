@@ -1,7 +1,4 @@
 #-----------------------------------------------------------------------
-#region Ajouter une liaison reseau
-#https://community.spiceworks.com/topic/2222919-add-a-network-location-via-powershell
-
 #region Ajoute un raccourcis
 function Add-Shortcut{
 	[CmdletBinding()]
@@ -40,6 +37,10 @@ function ValidateFileName{
 	}
 }
 #endregion
+
+#-----------------------------------------------------------------------
+#region Ajouter une liaison reseau
+#https://community.spiceworks.com/topic/2222919-add-a-network-location-via-powershell
 function Add-NetworkLocation {
 	[CmdletBinding()]
 	param (
