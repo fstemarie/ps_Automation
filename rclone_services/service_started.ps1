@@ -9,7 +9,7 @@ function Add-Shortcut{
 		[validateScript({ValidateFileName($_)})]
 		[string] $Name,
 		[parameter(Mandatory)]
-		[System.IO.FileInfo] $Target
+		[string] $Target
 	)
 
 	$shell = New-Object -ComObject WScript.Shell
