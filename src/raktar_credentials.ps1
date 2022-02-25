@@ -9,3 +9,4 @@ net use \\raktar\Slim         /USER:francois theglacer
 net use \\raktar\Storage      /USER:francois theglacer
 net use \\raktar\Tangerine    /USER:francois theglacer
 net use \\raktar\Videos       /USER:francois theglacer
+net use \\raktar\OMV          /USER:francois theglacer
