@@ -1,9 +1,9 @@
 $scripts = @(
     'documents.ps1'
     'eBooks.ps1'
+    'rclone.ps1'
     'keepass.ps1'
     'node-red.ps1'
-    'services.ps1'
     'vimfiles.ps1'
 )
 
