@@ -23,7 +23,7 @@ Write-Host "| Sauvegarde du dossier eBooks sur Raktar |"
 Write-Host ("-" * 43)
 
 $source = "D:/Francois/eBooks"
-$dest = "storage:/eBooks"
+$dest = "backup:/eBooks"
 Write-Host "1- Cree le dossier de destination"
 rclone mkdir $dest
 Write-Host "2- Synchronise les documents"

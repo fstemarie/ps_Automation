@@ -22,7 +22,7 @@ Write-Host "| Sauvegarde du dossier documents sur Raktar |"
 Write-Host ("-" * 47)
 
 $source = "D:/Francois/Documents"
-$dest = "storage:/documents"
+$dest = "backup:/documents"
 rclone sync $source $dest -P --exclude=/Development/**
 rclone delete backup:/Documents.timestamp
 Write-Host "3- Cree le document d'horodatage"
