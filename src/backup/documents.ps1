@@ -18,7 +18,7 @@
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Raktar
 Write-Host ("-" * 47)
-Write-Host "| Sauvegarde du dossier documents sur Box.com |"
+Write-Host "| Sauvegarde du dossier documents sur Raktar |"
 Write-Host ("-" * 47)
 
 $source = "D:/Francois/Documents"
