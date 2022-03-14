@@ -1,30 +1,34 @@
 #-----------------------------------------------------------------------
-#region Sauvegarde du dossier documents sur Box.com
-# Write-Host ("-" * 47)
-# Write-Host "| Sauvegarde du dossier documents sur Box.com |"
-# Write-Host ("-" * 47)
-
-# $source = "D:/Francois/Documents"
-# $dest = "box:/backup/Documents"
-# Write-Host "1- Cree le dossier de destination"
-# rclone mkdir $dest
-# Write-Host "2- Synchronise les documents"
-# rclone sync $source $dest -P --exclude=/Development/ --delete-excluded --ignore-case
-# rclone delete box:/backup/Documents.timestamp
-# Write-Host "3- Cree le document d'horodatage"
-# rclone touch box:/backup/Documents.timestamp --localtime
-#endregion
-
-#-----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Raktar
 Write-Host ("-" * 47)
 Write-Host "| Sauvegarde du dossier documents sur Raktar |"
 Write-Host ("-" * 47)
 
-$source = "D:/Francois/Documents"
-$dest = "backup:/documents"
-rclone sync $source $dest -P --exclude=/Development/**
-rclone delete backup:/Documents.timestamp
-Write-Host "3- Cree le document d'horodatage"
-rclone touch backup:/Documents.timestamp
+$source = "D:\Francois\Documents"
+$dest = "\\raktar\Storage\backup\documents"
+$arch = "$dest\documents.7z"
+
+# Creation du fichier incremental
+$incr = "$dest\documents.$(Get-Date -Format FileDateTime).7z"
+if (Test-Path -Path $arch -PathType Leaf) {
+    $params = @(
+        "-u-"
+        "-up1q1r3x1y1z0w1!$incr"
+        "-xr!Development"
+        "-mx=9"
+        $arch
+        $source
+    )
+    7z u @params
+}
+
+# Mise a jour de la sauvegarde complete
+$params = @(
+    "-up0q0r2x2y2z1w2"
+    "-xr!Development"
+    "-mx=9"
+    $arch
+    $source
+)
+7z u @params
 #endregion

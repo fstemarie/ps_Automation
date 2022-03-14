@@ -1,5 +1,6 @@
 $scripts = @(
     'documents.ps1'
+    'development.ps1'
     'eBooks.ps1'
     'rclone.ps1'
     'keepass.ps1'
