@@ -1,11 +1,11 @@
 $scripts = @(
-    'documents.ps1'
-    'development.ps1'
-    'eBooks.ps1'
-    'rclone.ps1'
-    'keepass.ps1'
-    'node-red.ps1'
-    'vimfiles.ps1'
+    'documents.bkp.ps1'
+    'development.bkp.ps1'
+    'eBooks.bkp.ps1'
+    'rclone.bkp.ps1'
+    'keepass.bkp.ps1'
+    'node-red.bkp.ps1'
+    'vimfiles.bkp.ps1'
 )
 
 foreach ($script in $scripts) {
