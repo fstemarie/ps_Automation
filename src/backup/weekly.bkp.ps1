@@ -4,7 +4,7 @@ $scripts = @(
     'eBooks.bkp.ps1'
     'rclone.bkp.ps1'
     'keepass.bkp.ps1'
-    'node-red.bkp.ps1'
+    'nodered.bkp.ps1'
     'vimfiles.bkp.ps1'
 )
 
