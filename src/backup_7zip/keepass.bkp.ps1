@@ -15,7 +15,7 @@ $params = @(
 
 Push-Location -Path C:\
 7z u @params
-rclone cat goo:/Services/KeePass/Passwords.kdbx | 7z u $arch -si"Passwords.kdbx"
-rclone cat goo:/Services/KeePass/Discarded.kdbx | 7z u $arch -si"Discarded.kdbx"
+rclone cat keepass:Passwords.kdbx | 7z u $arch -si"Passwords.kdbx"
+rclone cat keepass:Discarded.kdbx | 7z u $arch -si"Discarded.kdbx"
 Pop-Location
 #endregion
