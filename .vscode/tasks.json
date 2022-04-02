@@ -4,9 +4,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Deploy",
+            "label": "Deploy backup_7zip",
             "type": "shell",
             "command": ".vscode/tasks/deploy_backup_7zip.ps1",
+        },
+        {
+            "label": "Deploy backup_restic",
+            "type": "shell",
+            "command": ".vscode/tasks/deploy_backup_restic.ps1",
         }
     ]
 }
