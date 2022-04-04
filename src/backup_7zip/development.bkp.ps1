@@ -1,23 +1,25 @@
+Start-Transcript -Path D:\automation\log\development.log -Append -IncludeInvocationHeader
+
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Raktar
 Write-Host ("-" * 49)
 Write-Host "| Sauvegarde du dossier documents sur Raktar |"
 Write-Host ("-" * 49)
 
-$source = "D:\Francois\Documents\Development"
-$dest = "\\raktar\backup\HX90\development"
+$src = "D:\Francois\Documents\Development"
+$dst = "\\raktar\backup\HX90\development"
 # Creation du fichier incremental
-$arch = "$dest\development.7z"
-$incr = "$dest\development.$(Get-Date -Format FileDateTime).7z"
-if (Test-Path -Path $arch -PathType Leaf) {
+$arc = "$dst\development.7z"
+$inc = "$dst\development.$(Get-Date -Format FileDateTime).7z"
+if (Test-Path -Path $arc -PathType Leaf) {
     $params = @(
         "-u-"
-        "-up1q1r3x1y1z0w1!$incr"
+        "-up1q1r3x1y1z0w1!$inc"
         "-xr!node_modules"
         "-xr!.venv"
         "-mx=9"
-        $arch
-        $source
+        $arc
+        $src
     )
     7z u @params
 }
@@ -28,8 +30,10 @@ $params = @(
     "-mx=9"
     "-xr!node_modules"
     "-xr!.venv"
-    $arch
-    $source
+    $arc
+    $src
 )
 7z u @params
 #endregion
+
+Stop-Transcript
