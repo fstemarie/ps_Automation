@@ -6,12 +6,20 @@
         {
             "label": "Deploy backup_7zip",
             "type": "shell",
-            "command": ".vscode/tasks/deploy_backup_7zip.ps1",
+            "command": ".vscode/tasks/deploy_backup_7zip.ps1"
         },
         {
             "label": "Deploy backup_restic",
             "type": "shell",
-            "command": ".vscode/tasks/deploy_backup_restic.ps1",
+            "command": ".vscode/tasks/deploy_backup_restic.ps1"
+        },
+        {
+            "label": "Deploy All",
+            "dependsOn": [
+                "Deploy backup_7zip",
+                "Deploy backup_restic"
+            ],
+            "problemMatcher": []
         }
     ]
 }
