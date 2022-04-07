@@ -14,10 +14,16 @@
             "command": ".vscode/tasks/deploy_backup_restic.ps1"
         },
         {
+            "label": "Deploy backup_robocopy",
+            "type": "shell",
+            "command": ".vscode/tasks/deploy_backup_robocopy.ps1"
+        },
+        {
             "label": "Deploy All",
             "dependsOn": [
                 "Deploy backup_7zip",
-                "Deploy backup_restic"
+                "Deploy backup_restic",
+                "Deploy backup_robocopy"
             ],
             "problemMatcher": []
         }
