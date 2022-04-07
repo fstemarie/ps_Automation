@@ -6,6 +6,7 @@ Write-Host ("-" * 44)
 
 $src = "D:\services\node-red"
 $params = @(
+    '--tag=nodered'
     '--verbose'
     '--exclude=node_modules'
     $src

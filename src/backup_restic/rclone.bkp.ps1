@@ -6,6 +6,7 @@ Write-Host ("-" * 42)
 
 $src = "D:\services\rclone"
 $params = @(
+    '--tag=rclone'
     '--verbose'
     $src
 )

@@ -6,6 +6,7 @@ Write-Host ("-" * 42)
 
 $src = "D:\Francois\eBooks"
 $params = @(
+    '--tag=eBooks'
     '--verbose'
     $src
 )

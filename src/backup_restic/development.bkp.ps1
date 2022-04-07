@@ -6,6 +6,7 @@ Write-Host ("-" * 47)
 
 $src = "D:\Francois\Documents\Development"
 $params = @(
+    '--tag=development'
     '--verbose'
     '--exclude=.venv'
     '--exclude=node_modules'
