@@ -1,4 +1,6 @@
-Start-Transcript -Path D:\automation\log\eBooks.log -Append -IncludeInvocationHeader
+Start-Transcript `
+    -Path D:\automation\log\eBooks.7zip.log `
+    -Append -IncludeInvocationHeader
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Raktar

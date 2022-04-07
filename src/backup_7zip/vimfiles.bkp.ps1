@@ -1,4 +1,6 @@
-Start-Transcript -Path D:\automation\log\vimfiles.log -Append -IncludeInvocationHeader
+Start-Transcript `
+    -Path D:\automation\log\vimfiles.7zip.log `
+    -Append -IncludeInvocationHeader
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier Services sur Raktar

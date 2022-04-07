@@ -1,4 +1,6 @@
-Start-Transcript -Path D:\automation\log\rclone.log -Append -IncludeInvocationHeader
+Start-Transcript `
+    -Path D:\automation\log\rclone.7zip.log `
+    -Append -IncludeInvocationHeader
 
 #-----------------------------------------------------------------------
 #region Sauvegarde de la configuration de rClone sur Raktar

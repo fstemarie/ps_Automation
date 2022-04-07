@@ -1,4 +1,6 @@
-Start-Transcript -Path D:\automation\log\keepass.log -Append -IncludeInvocationHeader
+Start-Transcript `
+    -Path D:\automation\log\keepass.7zip.log `
+    -Append -IncludeInvocationHeader
 
 #-----------------------------------------------------------------------
 #region Sauvegarde des documents Keepass sur Raktar

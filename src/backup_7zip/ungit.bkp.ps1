@@ -1,4 +1,6 @@
-Start-Transcript -Path D:\automation\log\ungit.log -Append -IncludeInvocationHeader
+Start-Transcript `
+    -Path D:\automation\log\ungit.7zip.log `
+    -Append -IncludeInvocationHeader
 
 #-----------------------------------------------------------------------
 #region Sauvegarde de la configuration de Node-RED sur Raktar

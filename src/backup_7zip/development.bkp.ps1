@@ -1,4 +1,6 @@
-Start-Transcript -Path D:\automation\log\development.log -Append -IncludeInvocationHeader
+Start-Transcript `
+    -Path D:\automation\log\development.7zip.log `
+    -Append -IncludeInvocationHeader
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Raktar

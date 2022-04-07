@@ -1,4 +1,6 @@
-Start-Transcript -Path D:\automation\log\documents.log -Append -IncludeInvocationHeader
+Start-Transcript `
+    -Path D:\automation\log\documents.7zip.log `
+    -Append -IncludeInvocationHeader
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Raktar
