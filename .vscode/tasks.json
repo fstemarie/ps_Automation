@@ -4,26 +4,20 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Deploy backup_7zip",
+            "label": "Deploy backup scripts",
             "type": "shell",
-            "command": ".vscode/tasks/deploy_backup_7zip.ps1"
+            "command": ".vscode/tasks/deploy_backups.ps1"
         },
         {
-            "label": "Deploy backup_restic",
+            "label": "Deploy scripts",
             "type": "shell",
-            "command": ".vscode/tasks/deploy_backup_restic.ps1"
-        },
-        {
-            "label": "Deploy backup_robocopy",
-            "type": "shell",
-            "command": ".vscode/tasks/deploy_backup_robocopy.ps1"
+            "command": ".vscode/tasks/deploy.ps1"
         },
         {
             "label": "Deploy All",
             "dependsOn": [
-                "Deploy backup_7zip",
-                "Deploy backup_restic",
-                "Deploy backup_robocopy"
+                "Deploy backup scripts",
+                "Deploy scripts"
             ],
             "problemMatcher": []
         }
