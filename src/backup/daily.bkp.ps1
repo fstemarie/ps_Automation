@@ -1,6 +1,6 @@
 $scripts = @(
-    'robocopy\eBooks.bkp.ps1'
-    '7zip\rclone.bkp.ps1'
+    'restic\development.bkp.ps1'
+    'restic\documents.bkp.ps1'
 )
 
 foreach ($script in $scripts) {
