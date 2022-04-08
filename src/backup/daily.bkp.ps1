@@ -6,4 +6,4 @@ $scripts = @(
 foreach ($script in $scripts) {
     Start-Job -Name  $script -FilePath "$PSScriptRoot\$script"
 }
-Get-Job | Wait-Job
+Get-Job | Receive-Job -Wait
