@@ -9,7 +9,7 @@ Write-Host "| Sauvegarde du dossier eBooks sur Raktar |"
 Write-Host ("-" * 43)
 
 $src = "D:\Francois\eBooks"
-$dst = "\\raktar\backup\HX90\eBooks"
+$dst = "\\raktar.local\backup\HX90\eBooks"
 robocopy $src $dst /MIR /M /SL /SJ /MT /NP
 #endregion
 

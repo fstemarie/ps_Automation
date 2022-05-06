@@ -9,7 +9,7 @@ Write-Host "| Sauvegarde du dossier eBooks sur Raktar |"
 Write-Host ("-" * 43)
 
 $src = "D:\Francois\eBooks"
-$arc = "\\raktar\backup\HX90\eBooks\eBooks.7z"
+$arc = "\\raktar.local\backup\HX90\eBooks\eBooks.7z"
 $params = @(
     "-mx=9"
     $arc

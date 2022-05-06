@@ -9,7 +9,7 @@ Write-Host "| Sauvegarde du dossier documents sur Raktar |"
 Write-Host ("-" * 49)
 
 $src = "D:\Francois\Documents\Development"
-$dst = "\\raktar\backup\HX90\development"
+$dst = "\\raktar.local\backup\HX90\development"
 # Creation du fichier incremental
 $arc = "$dst\development.7z"
 $inc = "$dst\development.$(Get-Date -Format FileDateTime).7z"

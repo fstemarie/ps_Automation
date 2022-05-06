@@ -9,7 +9,7 @@ Write-Host "| Sauvegarde de la configuration de Ungit sur Raktar |"
 Write-Host ("-" * 53)
 
 $src = "D:\services\ungit"
-$arc = "\\raktar\backup\HX90\ungit\ungit.7z"
+$arc = "\\raktar.local\backup\HX90\ungit\ungit.7z"
 $params = @(
     "-up0q0r2x2y2z1w2"
     "-xr!node_modules"
