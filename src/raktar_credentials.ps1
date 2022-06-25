@@ -10,3 +10,15 @@ net use \\raktar.local\Storage      /USER:francois theglacer
 net use \\raktar.local\Tangerine    /USER:francois theglacer
 net use \\raktar.local\Videos       /USER:francois theglacer
 net use \\raktar.local\OMV          /USER:francois theglacer
+net use \\raktar\Copper       /USER:francois theglacer
+net use \\raktar\Copper_Audio /USER:francois theglacer
+net use \\raktar\Elements     /USER:francois theglacer
+net use \\raktar\Emerald      /USER:francois theglacer
+net use \\raktar\Mauve        /USER:francois theglacer
+net use \\raktar\Mauve_Audio  /USER:francois theglacer
+net use \\raktar\MyBook       /USER:francois theglacer
+net use \\raktar\Slim         /USER:francois theglacer
+net use \\raktar\Storage      /USER:francois theglacer
+net use \\raktar\Tangerine    /USER:francois theglacer
+net use \\raktar\Videos       /USER:francois theglacer
+net use \\raktar\OMV          /USER:francois theglacer
