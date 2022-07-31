@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Raktar
-Write-Host ("-" * 47)
+Write-Host ("-" * 46)
 Write-Host "| Sauvegarde du dossier documents sur Raktar |"
-Write-Host ("-" * 47)
+Write-Host ("-" * 46)
 
 $src = "D:\Francois\Documents"
 $dst = "\\raktar.local\backup\HX90\documents"
