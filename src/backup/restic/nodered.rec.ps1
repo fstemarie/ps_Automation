@@ -1,8 +1,22 @@
+Start-Transcript `
+    -Path D:\automation\log\nodered.restic.log `
+    -Append -IncludeInvocationHeader
+
 #----------------------------------------------------------------------
-#region Sauvegarde du dossier development sur Storj
-Write-Host ("-" * 45)
-Write-Host "| Recuperation du dossier nodered sur Storj |"
-Write-Host ("-" * 45)
+#region Recuperation du dossier nodered sur Storj
+Write-Host ("-" * 39)
+Write-Host "| Restoring nodered folder from Storj |"
+Write-Host ("-" * 39)
+
+if (-not(Test-Path -Path Env:\RESTIC_REPOSITORY)) {
+    Write-Host "nodered.rec.ps1 -- RESTIC_REPOSITORY empty"
+    Exit 1
+}
+
+if (-not(Test-Path -Path Env:\RESTIC_PASSWORD)) {
+    Write-Host "nodered.rec.ps1 -- RESTIC_PASSWORD empty"
+    Exit 1
+}
 
 $dst = "D:\services\node-red"
 if (Test-Path -Path $dst -PathType Container) {
@@ -15,5 +29,15 @@ $params = @(
     '--target=D:\'
 )
 restic restore latest @params
-Move-Item -Path "D:\D\services" -Destination "D:\" -Force
-Remove-Item -Path "D:\D"
+if ($?) {
+    Write-Host "nodered.rec.ps1 -- Data restoration successful"
+
+    Write-Host "nodered.rec.ps1 -- Moving folder to original location"
+    Move-Item -Path "D:\D\services" -Destination "D:\" -Force
+    Remove-Item -Path "D:\D"
+} else {
+    Write-Host "nodered.rec.ps1 -- Data restoration failed"
+    Exit 1
+}
+
+Stop-Transcript

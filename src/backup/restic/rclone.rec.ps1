@@ -1,8 +1,22 @@
+Start-Transcript `
+    -Path D:\automation\log\rclone.restic.log `
+    -Append -IncludeInvocationHeader
+
 #----------------------------------------------------------------------
-#region Sauvegarde du dossier development sur Storj
-Write-Host ("-" * 44)
-Write-Host "| Recuperation du dossier rclone sur Storj |"
-Write-Host ("-" * 44)
+#region Recuperation du dossier rclone sur Storj
+Write-Host ("-" * 38)
+Write-Host "| Restoring rclone folder from Storj |"
+Write-Host ("-" * 38)
+
+if (-not(Test-Path -Path Env:\RESTIC_REPOSITORY)) {
+    Write-Host "rclone.rec.ps1 -- RESTIC_REPOSITORY empty"
+    Exit 1
+}
+
+if (-not(Test-Path -Path Env:\RESTIC_PASSWORD)) {
+    Write-Host "rclone.rec.ps1 -- RESTIC_PASSWORD empty"
+    Exit 1
+}
 
 $dst = "D:\services\rclone"
 if (Test-Path -Path $dst -PathType Container) {
@@ -15,5 +29,15 @@ $params = @(
     '--target=D:\'
 )
 restic restore latest @params
-Move-Item -Path "D:\D\services" -Destination "D:\" -Force
-Remove-Item -Path "D:\D"
+if ($?) {
+    Write-Host "rclone.rec.ps1 -- Data restoration successful"
+
+    Write-Host "rclone.rec.ps1 -- Moving folder to original location"
+    Move-Item -Path "D:\D\services" -Destination "D:\" -Force
+    Remove-Item -Path "D:\D"
+} else {
+    Write-Host "rclone.rec.ps1 -- Data restoration failed"
+    Exit 1
+}
+
+Stop-Transcript
