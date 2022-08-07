@@ -16,4 +16,4 @@ if (-not ($gpgagent)) {
 }
 
 $entry = KeePassEntry "Github.com"
-$entry.password | gpg-preset-passphrase.exe --preset 2BADB96BFA63C75C
+gpg-preset-passphrase.exe --preset --passphrase $entry.password 2BADB96BFA63C75C
