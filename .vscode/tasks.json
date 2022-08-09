@@ -6,12 +6,14 @@
         {
             "label": "Deploy backup scripts",
             "type": "shell",
-            "command": ".vscode/tasks/deploy_backups.ps1"
+            "command": ".vscode/tasks/deploy_backups.ps1",
+            "problemMatcher": []
         },
         {
             "label": "Deploy scripts",
             "type": "shell",
-            "command": ".vscode/tasks/deploy.ps1"
+            "command": ".vscode/tasks/deploy.ps1",
+            "problemMatcher": []
         },
         {
             "label": "Deploy All",
