@@ -2,4 +2,4 @@
 
 Write-Host ("-" * 70)
 
-& "$PSScriptRoot\raktar_credentials.ps1"
+& "$PSScriptRoot\credentials.ps1"
