@@ -8,7 +8,7 @@ Write-Host ("-" * 46)
 Write-Host "| Sauvegarde de la config KeePass sur Raktar |"
 Write-Host ("-" * 46)
 
-$keepass = "D:\Francois\Documents\KeePass"
+$keepass = "D:\Francois\Documents\KeePass\gdrive - g"
 $arc = "\\raktar.local\backup\HX90\keepass\keepass.7z"
 $params = @(
     "-up0q0r2x2y2z1w2"
