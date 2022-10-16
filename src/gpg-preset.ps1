@@ -4,6 +4,8 @@ Write-Host ("-" * 43)
 
 . D:\applications\KeePassCommander\KeePassEntry.ps1
 
+gpg-connect-agent UPDATESTARTUPTTY /bye
+
 $keepass = Get-Process -Name KeePass -ErrorAction SilentlyContinue
 if (-not ($keepass)) {
     Write-Error "KeePass process not found"
@@ -16,4 +18,4 @@ if (-not ($gpgagent)) {
 }
 
 $entry = KeePassEntry "Github.com"
-gpg-preset-passphrase.exe --preset --passphrase $entry.password 2BADB96BFA63C75C
+gpg-preset-passphrase --preset --passphrase $entry.password 2BADB96BFA63C75C
