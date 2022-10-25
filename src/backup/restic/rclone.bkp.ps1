@@ -10,17 +10,17 @@ Write-Host ("-" * 42)
 
 $src = "D:\services\rclone"
 
-if (!Test-Path Env:RESTIC_REPOSITORY) {
+if (-not (Test-Path Env:RESTIC_REPOSITORY)) {
     Write-Host "rclone.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
     exit
 }
 
-if (!Test-Path Env:\RESTIC_PASSWORD) {
+if (-not (Test-Path Env:\RESTIC_PASSWORD)) {
     Write-Host "rclone.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
     exit
 }
 
-if (!Test-Path $src) {
+if (-not (Test-Path $src)) {
     Write-Host "rclone.bkp.ps1 -- Source folder does not exist"
     exit
 }
