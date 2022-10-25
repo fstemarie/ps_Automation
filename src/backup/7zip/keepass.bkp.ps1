@@ -22,7 +22,8 @@ $params = @(
 
 Push-Location -Path C:\
 7z u @params
-rclone cat google.bb:/keepass/Passwords.kdbx | 7z u $arc -si"Passwords.kdbx"
+
+# rclone cat google.bb:/keepass/Passwords.kdbx | 7z u $arc -si"Passwords.kdbx"
 # rclone cat google:/Services/KeePass/Discarded.kdbx | 7z u $arc -si"Discarded.kdbx"
 Pop-Location
 #endregion
