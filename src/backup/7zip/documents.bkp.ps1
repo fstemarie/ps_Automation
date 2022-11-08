@@ -4,14 +4,13 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Raktar
-Write-Host ("-" * 46)
+Write-Host "----------------------------------------------"
 Write-Host "| Sauvegarde du dossier documents sur Raktar |"
-Write-Host ("-" * 46)
+Write-Host "----------------------------------------------"
 
 $src = "D:\Francois\Documents"
 $dst = "\\raktar.local\backup\HX90\documents"
 $arc = "$dst\documents.7z"
-
 # Creation du fichier incremental
 $inc = "$dst\documents.$(Get-Date -Format FileDateTime).7z"
 if (Test-Path -Path $arc -PathType Leaf) {

@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier Services sur Raktar
-Write-Host ("-" * 42)
+Write-Host "------------------------------------------"
 Write-Host "| Sauvegarde de la config Vim sur Raktar |"
-Write-Host ("-" * 42)
+Write-Host "------------------------------------------"
 
 $src = "D:\Francois\vimfiles"
 $arc = "\\raktar.local\backup\HX90\vimfiles\vimfiles.7z"

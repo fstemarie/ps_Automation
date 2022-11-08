@@ -4,9 +4,9 @@ Start-Transcript `
 
 #----------------------------------------------------------------------
 #region Recuperation du dossier nodered sur Storj
-Write-Host ("-" * 39)
+Write-Host "---------------------------------------"
 Write-Host "| Restoring nodered folder from Storj |"
-Write-Host ("-" * 39)
+Write-Host "---------------------------------------"
 
 if (-not(Test-Path -Path Env:\RESTIC_REPOSITORY)) {
     Write-Host "nodered.rec.ps1 -- RESTIC_REPOSITORY empty"

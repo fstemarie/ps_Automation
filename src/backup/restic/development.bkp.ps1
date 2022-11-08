@@ -4,9 +4,9 @@ Start-Transcript `
 
 #----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Storj
-Write-Host ("-" * 47)
+Write-Host "-----------------------------------------------"
 Write-Host "| Sauvegarde du dossier development sur Storj |"
-Write-Host ("-" * 47)
+Write-Host "-----------------------------------------------"
 
 $src = "D:\Francois\Documents\Development"
 
@@ -48,7 +48,6 @@ Write-Host "development.bkp.ps1 -- Forgetting snapshots"
 $params = @(
     '--host=HX90'
     '--tag=development'
-    '--prune'
     '--keep-daily=14'
     '--keep-monthly=6'
 )

@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 #region Sauvegarde de la configuration de Node-RED sur Raktar
-Write-Host ("-" * 53)
+Write-Host "------------------------------------------------------"
 Write-Host "| Sauvegarde de la configuration de Ungit sur Raktar |"
-Write-Host ("-" * 53)
+Write-Host "------------------------------------------------------"
 
 $src = "D:\services\ungit"
 $arc = "\\raktar.local\backup\HX90\ungit\ungit.7z"

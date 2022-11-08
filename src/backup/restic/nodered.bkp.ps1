@@ -4,9 +4,9 @@ Start-Transcript `
 
 #----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Storj
-Write-Host ("-" * 44)
+Write-Host "--------------------------------------------"
 Write-Host "| Sauvegarde du dossier node-red sur Storj |"
-Write-Host ("-" * 44)
+Write-Host "--------------------------------------------"
 
 $src = "D:\services\node-red"
 
@@ -46,7 +46,6 @@ Write-Host "nodered.bkp.ps1 -- Forgetting snapshots"
 $params = @(
     '--host=HX90'
     '--tag=nodered'
-    '--prune'
     '--keep-last=3'
 )
 restic forget @params

@@ -3,10 +3,10 @@ Start-Transcript `
     -Append -IncludeInvocationHeader
 
 #----------------------------------------------------------------------
-#region Sauvegarde du dossier development sur Storj
-Write-Host ("-" * 45)
+#region Sauvegarde du dossier documents sur Storj
+Write-Host "---------------------------------------------"
 Write-Host "| Sauvegarde du dossier documents sur Storj |"
-Write-Host ("-" * 45)
+Write-Host "---------------------------------------------"
 
 $src = "D:\Francois\Documents"
 
@@ -46,7 +46,6 @@ Write-Host "documents.bkp.ps1 -- Forgetting snapshots"
 $params = @(
     '--host=HX90'
     '--tag=documents'
-    '--prune'
     '--keep-weekly=8'
     '--keep-monthly=12'
     '--keep-yearly=4'

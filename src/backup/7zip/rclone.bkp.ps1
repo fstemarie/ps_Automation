@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 #region Sauvegarde de la configuration de rClone sur Raktar
-Write-Host ("-" * 57)
+Write-Host "-------------------------------------------------------"
 Write-Host "| Sauvegarde de la configuration de rClone sur Raktar |"
-Write-Host ("-" * 57)
+Write-Host "-------------------------------------------------------"
 
 $src = "D:\services\rclone"
 $arc = "\\raktar.local\backup\HX90\rclone\rclone.7z"

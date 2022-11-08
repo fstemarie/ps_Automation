@@ -4,9 +4,9 @@ Start-Transcript `
 
 #----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Storj
-Write-Host ("-" * 42)
+Write-Host "------------------------------------------"
 Write-Host "| Sauvegarde du dossier rclone sur Storj |"
-Write-Host ("-" * 42)
+Write-Host "------------------------------------------"
 
 $src = "D:\services\rclone"
 
@@ -45,7 +45,6 @@ Write-Host "rclone.bkp.ps1 -- Forgetting snapshots"
 $params = @(
     '--host=HX90'
     '--tag=rclone'
-    '--prune'
     '--keep-last=3'
 )
 restic forget @params

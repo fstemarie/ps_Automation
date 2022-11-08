@@ -4,9 +4,9 @@ Start-Transcript `
 
 #----------------------------------------------------------------------
 #region Recuperation du dossier vimfiles sur Storj
-Write-Host ("-" * 40)
+Write-Host "----------------------------------------"
 Write-Host "| Restoring vimfiles folder from Storj |"
-Write-Host ("-" * 40)
+Write-Host "----------------------------------------"
 
 if (-not(Test-Path -Path Env:\RESTIC_REPOSITORY)) {
     Write-Host "vimfiles.rec.ps1 -- RESTIC_REPOSITORY empty"

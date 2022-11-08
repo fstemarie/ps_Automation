@@ -45,7 +45,6 @@ Write-Host "eBooks.bkp.ps1 -- Forgetting snapshots"
 $params = @(
     '--host=HX90'
     '--tag=eBooks'
-    '--prune'
     '--keep-monthly=6'
 )
 restic forget @params

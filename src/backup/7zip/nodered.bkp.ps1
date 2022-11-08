@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 #region Sauvegarde de la configuration de Node-RED sur Raktar
-Write-Host ("-" * 57)
+Write-Host "---------------------------------------------------------"
 Write-Host "| Sauvegarde de la configuration de Node-RED sur Raktar |"
-Write-Host ("-" * 57)
+Write-Host "---------------------------------------------------------"
 
 $src = "D:\services\node-red"
 $arc = "\\raktar.local\backup\HX90\nodered\nodered.7z"

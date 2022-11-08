@@ -5,8 +5,9 @@ Write-Host ("-" * 42)
 . D:\applications\KeePassCommander\KeePassEntry.ps1
 $creds = KeePassEntry "raktar.local - francois"
 
-net use \\raktar.local\copper       /USER:francois $($creds.password)
 net use \\raktar.local\audio        /USER:francois $($creds.password)
+net use \\raktar.local\backup       /USER:francois $($creds.password)
+net use \\raktar.local\copper       /USER:francois $($creds.password)
 net use \\raktar.local\elements     /USER:francois $($creds.password)
 net use \\raktar.local\emerald      /USER:francois $($creds.password)
 net use \\raktar.local\mauve        /USER:francois $($creds.password)

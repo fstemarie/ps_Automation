@@ -4,9 +4,9 @@ Start-Transcript `
 
 #----------------------------------------------------------------------
 #region Recuperation du dossier rclone sur Storj
-Write-Host ("-" * 38)
+Write-Host "--------------------------------------"
 Write-Host "| Restoring rclone folder from Storj |"
-Write-Host ("-" * 38)
+Write-Host "--------------------------------------"
 
 if (-not(Test-Path -Path Env:\RESTIC_REPOSITORY)) {
     Write-Host "rclone.rec.ps1 -- RESTIC_REPOSITORY empty"

@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 #region Sauvegarde des documents Keepass sur Raktar
-Write-Host ("-" * 46)
+Write-Host "----------------------------------------------"
 Write-Host "| Sauvegarde de la config KeePass sur Raktar |"
-Write-Host ("-" * 46)
+Write-Host "----------------------------------------------"
 
 $keepass = "D:\Francois\Documents\KeePass\gdrive - g"
 $arc = "\\raktar.local\backup\HX90\keepass\keepass.7z"
