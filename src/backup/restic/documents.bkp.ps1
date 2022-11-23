@@ -46,8 +46,8 @@ Write-Host "documents.bkp.ps1 -- Forgetting snapshots"
 $params = @(
     '--host=HX90'
     '--tag=documents'
-    '--keep-weekly=8'
-    '--keep-monthly=12'
+    '--keep-weekly=4'
+    '--keep-monthly=6'
     '--keep-yearly=4'
 )
 restic forget @params
