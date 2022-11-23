@@ -32,6 +32,7 @@ $params = @(
     '--tag=nodered'
     '--verbose'
     '--exclude=node_modules'
+    '--exclude=.sshkeys'
     $src
 )
 restic backup @params

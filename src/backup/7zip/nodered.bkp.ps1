@@ -13,6 +13,7 @@ $arc = "\\raktar.local\backup\HX90\nodered\nodered.7z"
 $params = @(
     "-up0q0r2x2y2z1w2"
     "-xr!node_modules"
+    "-xr!.sshkeys"
     "-mx=9"
     $arc
     $src
