@@ -31,6 +31,7 @@ $params = @(
     '--host=HX90'
     '--tag=nodered'
     '--verbose'
+    '--exclude=node-red/*.log'
     '--exclude=node_modules'
     '--exclude=.sshkeys'
     $src

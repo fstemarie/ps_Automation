@@ -12,6 +12,7 @@ $src = "D:\services\node-red"
 $arc = "\\raktar.local\backup\HX90\nodered\nodered.7z"
 $params = @(
     "-up0q0r2x2y2z1w2"
+    "-x!node-red/*.log"
     "-xr!node_modules"
     "-xr!.sshkeys"
     "-mx=9"
