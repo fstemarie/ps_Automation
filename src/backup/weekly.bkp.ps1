@@ -1,6 +1,7 @@
 & $PSScriptRoot\restic\rclone.bkp.ps1
 & $PSScriptRoot\restic\nodered.bkp.ps1
 & $PSScriptRoot\restic\vimfiles.bkp.ps1
+& $PSScriptRoot\restic\eBooks.bkp.ps1
 restic prune
 
 $scripts = @(
