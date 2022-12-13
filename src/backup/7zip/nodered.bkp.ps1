@@ -3,15 +3,28 @@ Start-Transcript `
     -Append -IncludeInvocationHeader
 
 #-----------------------------------------------------------------------
-#region Sauvegarde de la configuration de Node-RED sur Raktar
+# Sauvegarde de la configuration de Node-RED sur Raktar
 Write-Host "---------------------------------------------------------"
 Write-Host "| Sauvegarde de la configuration de Node-RED sur Raktar |"
 Write-Host "---------------------------------------------------------"
 
 $src = "D:\services\node-red"
-$arc = "\\raktar.local\backup\HX90\nodered\nodered.7z"
+$dst = "\\raktar.local\backup\HX90\nodered"
+$arc = Join-Path $dst "nodered.$(Get-Date -Format FileDateTime).7z"
+
+# if the source folder doesn't exist, then there is nothing to backup
+if (-not (Test-Path $src)) {
+    Write-Host "nodered.bkp.ps1 -- Source folder does not exist"
+    exit
+}
+
+# if the destination folder does not exist, create it
+if (-not (Test-Path $dst)) {
+    Write-Host "nodered.bkp.ps1 -- Creating non-existent destination"
+    New-Item -ItemType Directory $dst -Force
+}
+
 $params = @(
-    "-up0q0r2x2y2z1w2"
     "-x!node-red/*.log"
     "-xr!node_modules"
     "-xr!.sshkeys"
@@ -20,6 +33,13 @@ $params = @(
     $src
 )
 7z u @params
-#endregion
+
+$nb_max = 5
+$bkps = Get-Item (Join-Path $dst "nodered.*.7z") | Sort-Object
+if ($bkps.Count -gt $nb_max) {
+    Write-Host "Enleve les fichiers de sauvegardes de trop"
+    $nb_del = $bkps.Count - $nb_max
+    Remove-Item -Path ($bkps | Select-Object -First $nb_del)
+}
 
 Stop-Transcript
