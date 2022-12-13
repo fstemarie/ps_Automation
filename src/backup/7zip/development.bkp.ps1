@@ -10,9 +10,21 @@ Write-Host "------------------------------------------------"
 
 $src = "D:\Francois\Documents\Development"
 $dst = "\\raktar.local\backup\HX90\development"
-# Creation du fichier incremental
 $arc = "$dst\development.7z"
 $inc = "$dst\development.$(Get-Date -Format FileDateTime).7z"
+
+# if the source folder doesn't exist, then there is nothing to backup
+if (-not (Test-Path $src)) {
+    Write-Host "development.bkp.ps1 -- Source folder does not exist"
+    exit
+}
+
+# if the destination folder does not exist, create it
+if (-not (Test-Path $dst)) {
+    Write-Host "development.bkp.ps1 -- Creating non-existent destination"
+    New-Item -ItemType Directory $dst
+}
+
 if (Test-Path -Path $arc -PathType Leaf) {
     $params = @(
         "-u-"
