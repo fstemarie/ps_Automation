@@ -9,23 +9,9 @@
     },
     "tasks": [
         {
-            "label": "Deploy backup scripts",
-            "type": "shell",
-            "command": ".vscode/tasks/deploy_backups.ps1",
-            "problemMatcher": []
-        },
-        {
             "label": "Deploy scripts",
             "type": "shell",
             "command": ".vscode/tasks/deploy.ps1",
-            "problemMatcher": []
-        },
-        {
-            "label": "Deploy All",
-            "dependsOn": [
-                "Deploy backup scripts",
-                "Deploy scripts"
-            ],
             "problemMatcher": []
         }
     ]
