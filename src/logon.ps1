@@ -1,2 +1,1 @@
-& "$PSScriptRoot\credentials.ps1"
-Write-Host ("-" * 70)
+& (Join-Path $PSScriptRoot "credentials.ps1")
