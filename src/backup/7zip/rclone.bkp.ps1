@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 # Sauvegarde de la configuration de rClone sur Raktar
-Write-Host "-------------------------------------------------------"
-Write-Host "| Sauvegarde de la configuration de rClone sur Raktar |"
-Write-Host "-------------------------------------------------------"
+Write-Host "┌─────────────────────────────────────────────────────┐"
+Write-Host "│ Sauvegarde de la configuration de rClone sur Raktar │"
+Write-Host "└─────────────────────────────────────────────────────┘"
 
 $src = "D:\services\rclone"
 $dst = "\\raktar.local\backup\HX90\rclone"

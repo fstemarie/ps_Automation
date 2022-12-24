@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 # Sauvegarde du dossier Services sur Raktar
-Write-Host "------------------------------------------"
-Write-Host "| Sauvegarde de la config Vim sur Raktar |"
-Write-Host "------------------------------------------"
+Write-Host "┌────────────────────────────────────────┐"
+Write-Host "│ Sauvegarde de la config Vim sur Raktar │"
+Write-Host "└────────────────────────────────────────┘"
 
 $src = "D:\Francois\vimfiles"
 $dst = "\\raktar.local\backup\HX90\vimfiles"

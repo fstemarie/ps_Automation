@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Raktar
-Write-Host "------------------------------------------------"
-Write-Host "| Sauvegarde du dossier development sur Raktar |"
-Write-Host "------------------------------------------------"
+Write-Host "┌──────────────────────────────────────────────┐"
+Write-Host "│ Sauvegarde du dossier development sur Raktar │"
+Write-Host "└──────────────────────────────────────────────┘"
 
 $src = "D:\Francois\Documents\Development"
 $dst = "\\raktar.local\backup\HX90\development"

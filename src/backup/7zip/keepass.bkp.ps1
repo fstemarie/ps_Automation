@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 # Sauvegarde des documents Keepass sur Raktar
-Write-Host "----------------------------------------------"
-Write-Host "| Sauvegarde de la config KeePass sur Raktar |"
-Write-Host "----------------------------------------------"
+Write-Host "┌────────────────────────────────────────────┐"
+Write-Host "│ Sauvegarde de la config KeePass sur Raktar │"
+Write-Host "└────────────────────────────────────────────┘"
 
 $keepass = "D:\Francois\Documents\KeePass\gdrive - g"
 $dst = "\\raktar.local\backup\HX90\keepass"

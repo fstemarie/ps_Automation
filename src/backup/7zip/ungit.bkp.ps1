@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 # Sauvegarde de la configuration de Ungit sur Raktar
-Write-Host "------------------------------------------------------"
-Write-Host "| Sauvegarde de la configuration de Ungit sur Raktar |"
-Write-Host "------------------------------------------------------"
+Write-Host "┌────────────────────────────────────────────────────┐"
+Write-Host "│ Sauvegarde de la configuration de Ungit sur Raktar │"
+Write-Host "└────────────────────────────────────────────────────┘"
 
 $src = "D:\services\ungit"
 $dst = "\\raktar.local\backup\HX90\ungit"
