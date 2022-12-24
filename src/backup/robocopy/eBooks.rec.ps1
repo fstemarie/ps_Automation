@@ -1,8 +1,8 @@
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier eBooks sur Raktar
-Write-Host "--------------------------------------------"
-Write-Host "| Recuperation du dossier eBooks de Raktar |"
-Write-Host "--------------------------------------------"
+Write-Host "┌──────────────────────────────────────────┐"
+Write-Host "│ Recuperation du dossier eBooks de Raktar │"
+Write-Host "└──────────────────────────────────────────┘"
 
 $src = "\\raktar.local\backup\HX90\eBooks"
 $dst = "D:\francois\eBooks"

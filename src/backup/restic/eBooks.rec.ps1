@@ -4,9 +4,9 @@ Start-Transcript `
 
     #----------------------------------------------------------------------
 #region Recuperation du dossier eBooks sur Storj
-Write-Host "--------------------------------------"
-Write-Host "| Restoring eBooks folder from Storj |"
-Write-Host "--------------------------------------"
+Write-Host "┌────────────────────────────────────┐"
+Write-Host "│ Restoring eBooks folder from Storj │"
+Write-Host "└────────────────────────────────────┘"
 
 if (-not(Test-Path -Path Env:\RESTIC_REPOSITORY)) {
     Write-Host "eBooks.rec.ps1 -- RESTIC_REPOSITORY empty"

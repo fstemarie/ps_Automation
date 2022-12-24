@@ -4,9 +4,9 @@ Start-Transcript `
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Raktar
-Write-Host "-------------------------------------------"
-Write-Host "| Sauvegarde du dossier eBooks sur Raktar |"
-Write-Host "-------------------------------------------"
+Write-Host "┌─────────────────────────────────────────┐"
+Write-Host "│ Sauvegarde du dossier eBooks sur Raktar │"
+Write-Host "└─────────────────────────────────────────┘"
 
 $src = "D:\Francois\eBooks"
 $dst = "\\raktar.local\backup\HX90\eBooks"

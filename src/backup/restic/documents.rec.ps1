@@ -4,9 +4,9 @@ Start-Transcript `
 
     #----------------------------------------------------------------------
 #region Recuperation du dossier documents sur Storj
-Write-Host "-----------------------------------------"
-Write-Host "| Restoring documents folder from storj |"
-Write-Host "-----------------------------------------"
+Write-Host "┌───────────────────────────────────────┐"
+Write-Host "│ Restoring documents folder from storj │"
+Write-Host "└───────────────────────────────────────┘"
 
 
 if (-not(Test-Path -Path Env:\RESTIC_REPOSITORY)) {

@@ -4,9 +4,9 @@ Start-Transcript `
 
 #----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Storj
-Write-Host "---------------------------------------------"
-Write-Host "| Sauvegarde du dossier documents sur Storj |"
-Write-Host "---------------------------------------------"
+Write-Host "┌───────────────────────────────────────────┐"
+Write-Host "│ Sauvegarde du dossier documents sur Storj │"
+Write-Host "└───────────────────────────────────────────┘"
 
 $src = "D:\Francois\Documents"
 
