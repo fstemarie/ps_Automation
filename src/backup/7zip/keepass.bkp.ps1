@@ -16,7 +16,6 @@ $params = @(
     "-mx=9"
     $arc
     "${env:APPDATA}\KeePass\KeePass.config.xml"
-    "${env:APPDATA}\KeePass\KeeAnywhere.Accounts.json"
     "${keepass}\Passwords.kdbx"
     "${keepass}\Discarded.kdbx"
 )
