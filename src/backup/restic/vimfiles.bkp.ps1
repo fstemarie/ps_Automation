@@ -46,7 +46,7 @@ restic backup @params
 Pop-Location
 if (!$?) {
     Write-Host "vimfiles.bkp.ps1 -- There was an error during the snapshot"
-    exit
+    exit 1
 }
 Write-Host "vimfiles.bkp.ps1 -- Snapshot created successfully"
 
@@ -59,7 +59,7 @@ $params = @(
 restic forget @params
 if (!$?) {
     Write-Host "vimfiles.bkp.ps1 -- Unable to forget snapshots"
-    exit
+    exit 1
 }
 Write-Host "vimfiles.bkp.ps1 -- Snapshots forgotten successfully"
 

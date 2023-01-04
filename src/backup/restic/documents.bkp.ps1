@@ -20,17 +20,17 @@ Write-Host "└─────────────────────�
 
 if (!(Test-Path env:RESTIC_REPOSITORY)) {
     Write-Host "documents.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
-    exit
+    exit 1
 }
 
 if (!(Test-Path env:\RESTIC_PASSWORD)) {
     Write-Host "documents.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
-    exit
+    exit 1
 }
 
 if (!(Test-Path $src)) {
     Write-Host "documents.bkp.ps1 -- Source folder does not exist"
-    exit
+    exit 1
 }
 
 Write-Host "documents.bkp.ps1 -- Source folder: $src"
@@ -47,7 +47,7 @@ restic backup @params
 Pop-Location
 if (!$?) {
     Write-Host "documents.bkp.ps1 -- There was an error during the snapshot"
-    exit
+    exit 1
 }
 Write-Host "documents.bkp.ps1 -- Snapshot created successfully"
 
@@ -62,7 +62,7 @@ $params = @(
 restic forget @params
 if (!$?) {
     Write-Host "documents.bkp.ps1 -- Unable to forget snapshots"
-    exit
+    exit 1
 }
 Write-Host "documents.bkp.ps1 -- Snapshots forgotten successfully"
 
