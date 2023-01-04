@@ -14,9 +14,9 @@ Start-Transcript @params
 
 #----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Storj
-Write-Host "┌───────────────────────────────────────┐"
-Write-Host "│ Sauvegarde du dossier ungit sur Storj │"
-Write-Host "└───────────────────────────────────────┘"
+Write-Host "┌──────────────────────────────────────────┐"
+Write-Host "│ Sauvegarde du dossier vimfiles sur Storj │"
+Write-Host "└──────────────────────────────────────────┘"
 
 if (!(Test-Path env:RESTIC_REPOSITORY)) {
     Write-Host "vimfiles.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
