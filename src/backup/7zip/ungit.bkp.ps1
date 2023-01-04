@@ -1,16 +1,19 @@
-Start-Transcript `
-    -Path D:\automation\log\ungit.7zip.log `
-    -Append -IncludeInvocationHeader
+$src = "D:\services\ungit"
+$dst = "\\raktar.local\backup\HX90\ungit"
+$arc = Join-Path $dst "ungit.$(Get-Date -Format FileDateTime).7z"
+
+$params = @{
+    Path                    = Join-Path $env:AUTOMATION "log" "ungit.7zip.log"
+    Append                  = $true
+    IncludeInvocationHeader = $true
+}
+Start-Transcript @params
 
 #-----------------------------------------------------------------------
 # Sauvegarde de la configuration de Ungit sur Raktar
 Write-Host "┌────────────────────────────────────────────────────┐"
 Write-Host "│ Sauvegarde de la configuration de Ungit sur Raktar │"
 Write-Host "└────────────────────────────────────────────────────┘"
-
-$src = "D:\services\ungit"
-$dst = "\\raktar.local\backup\HX90\ungit"
-$arc = Join-Path $dst "ungit.$(Get-Date -Format FileDateTime).7z"
 
 $params = @(
     "-xr!node_modules"

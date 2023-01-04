@@ -1,6 +1,16 @@
-Start-Transcript `
-    -Path D:\automation\log\eBooks.restic.log `
-    -Append -IncludeInvocationHeader
+$src = "D:\Francois\eBooks"
+
+if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
+    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    exit 1
+}
+
+$params = @{
+    Path                    = Join-Path $env:AUTOMATION "log" "eBooks.restic.log"
+    Append                  = $true
+    IncludeInvocationHeader = $true
+}
+Start-Transcript @params
 
 #----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Storj
@@ -8,21 +18,20 @@ Write-Host "┌─────────────────────�
 Write-Host "│ Sauvegarde du dossier eBooks sur Storj │"
 Write-Host "└────────────────────────────────────────┘"
 
-$src = "D:\Francois\eBooks"
 
-if (-not (Test-Path Env:RESTIC_REPOSITORY)) {
+if (!(Test-Path env:RESTIC_REPOSITORY)) {
     Write-Host "eBooks.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
-    exit
+    exit 1
 }
 
-if (-not (Test-Path Env:\RESTIC_PASSWORD)) {
+if (!(Test-Path env:\RESTIC_PASSWORD)) {
     Write-Host "eBooks.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
-    exit
+    exit 1
 }
 
-if (-not (Test-Path $src)) {
+if (!(Test-Path $src)) {
     Write-Host "eBooks.bkp.ps1 -- Source folder does not exist"
-    exit
+    exit 1
 }
 
 Write-Host "eBooks.bkp.ps1 -- Source folder: $src"
@@ -31,13 +40,14 @@ $params = @(
     '--host=HX90'
     '--tag=eBooks'
     '--verbose'
-    $src
+    (Split-Path $src -Leaf)
 )
+Push-Location (Split-Path $src -Parent)
 restic backup @params
-
+Pop-Location
 if (!$?) {
     Write-Host "eBooks.bkp.ps1 -- There was an error during the snapshot"
-    exit
+    exit 1
 }
 Write-Host "eBooks.bkp.ps1 -- Snapshot created successfully"
 
@@ -48,10 +58,9 @@ $params = @(
     '--keep-monthly=6'
 )
 restic forget @params
-
 if (!$?) {
     Write-Host "eBooks.bkp.ps1 -- Unable to forget snapshots"
-    exit
+    exit 1
 }
 Write-Host "eBooks.bkp.ps1 -- Snapshots forgotten successfully"
 

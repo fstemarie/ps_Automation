@@ -1,6 +1,14 @@
-Start-Transcript `
-    -Path D:\automation\log\documents.7zip.log `
-    -Append -IncludeInvocationHeader
+$src = "D:\Francois\Documents"
+$dst = "\\raktar.local\backup\HX90\documents"
+$arc = "$dst\documents.7z"
+$inc = "$dst\documents.$(Get-Date -Format FileDateTime).7z"
+
+$params = @{
+    Path                    = Join-Path $env:AUTOMATION "log" "documents.7zip.log"
+    Append                  = $true
+    IncludeInvocationHeader = $true
+}
+Start-Transcript @params
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Raktar
@@ -8,24 +16,19 @@ Write-Host "┌─────────────────────�
 Write-Host "│ Sauvegarde du dossier documents sur Raktar │"
 Write-Host "└────────────────────────────────────────────┘"
 
-$src = "D:\Francois\Documents"
-$dst = "\\raktar.local\backup\HX90\documents"
-$arc = "$dst\documents.7z"
-$inc = "$dst\documents.$(Get-Date -Format FileDateTime).7z"
-
 # if the source folder doesn't exist, then there is nothing to backup
-if (-not (Test-Path $src)) {
+if (!(Test-Path $src)) {
     Write-Host "documents.bkp.ps1 -- Source folder does not exist"
     exit
 }
 
 # if the destination folder does not exist, create it
-if (-not (Test-Path $dst)) {
+if (!(Test-Path $dst)) {
     Write-Host "documents.bkp.ps1 -- Creating non-existent destination"
-    New-Item -ItemType Directory $dst
+    New-Item $dst -ItemType Directory
 }
 
-if (Test-Path -Path $arc -PathType Leaf) {
+if (Test-Path $arc -PathType Leaf) {
     $params = @(
         "-u-"
         "-up1q1r3x1y1z0w1!$inc"

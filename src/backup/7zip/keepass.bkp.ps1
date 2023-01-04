@@ -1,16 +1,19 @@
-Start-Transcript `
-    -Path D:\automation\log\keepass.7zip.log `
-    -Append -IncludeInvocationHeader
+$keepass = "D:\Francois\Documents\KeePass\gdrive - g"
+$dst = "\\raktar.local\backup\HX90\keepass"
+$arc = Join-Path $dst "keepass.$(Get-Date -Format FileDateTime).7z"
+
+$params = @{
+    Path                    = Join-Path $env:APPDATA "log" "keepass.7zip.log"
+    Append                  = $true
+    IncludeInvocationHeader = $true
+}
+Start-Transcript @params
 
 #-----------------------------------------------------------------------
 # Sauvegarde des documents Keepass sur Raktar
 Write-Host "┌────────────────────────────────────────────┐"
 Write-Host "│ Sauvegarde de la config KeePass sur Raktar │"
 Write-Host "└────────────────────────────────────────────┘"
-
-$keepass = "D:\Francois\Documents\KeePass\gdrive - g"
-$dst = "\\raktar.local\backup\HX90\keepass"
-$arc = Join-Path $dst "keepass.$(Get-Date -Format FileDateTime).7z"
 
 $params = @(
     "-mx=9"

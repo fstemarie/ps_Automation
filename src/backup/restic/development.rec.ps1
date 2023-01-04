@@ -1,6 +1,16 @@
-Start-Transcript `
-    -Path D:\automation\log\development.restic.log `
-    -Append -IncludeInvocationHeader
+$dst = "D:\francois\Documents\Development"
+
+if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
+    Write-Error "development.rec.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    exit 1
+}
+
+$params = @{
+    Path                    = Join-Path $env:AUTOMATION "log" "development.restic.log"
+    Append                  = $true
+    IncludeInvocationHeader = $true
+}
+Start-Transcript @params
 
 #----------------------------------------------------------------------
 #region Recuperation du dossier development sur Storj
@@ -8,38 +18,32 @@ Write-Host "┌─────────────────────�
 Write-Host "│ Restoring development folder from Storj │"
 Write-Host "└─────────────────────────────────────────┘"
 
-if (-not(Test-Path -Path Env:\RESTIC_REPOSITORY)) {
-    Write-Host "development.rec.ps1 -- RESTIC_REPOSITORY empty"
-    Exit 1
+if (!(Test-Path env:\RESTIC_REPOSITORY)) {
+    Write-Error "development.rec.ps1 -- RESTIC_REPOSITORY empty"
+    exit 1
 }
 
-if (-not(Test-Path -Path Env:\RESTIC_PASSWORD)) {
-    Write-Host "development.rec.ps1 -- RESTIC_PASSWORD empty"
-    Exit 1
+if (!(Test-Path env:\RESTIC_PASSWORD)) {
+    Write-Error "development.rec.ps1 -- RESTIC_PASSWORD empty"
+    exit 1
 }
 
-$dst = "D:\francois\Documents\Development"
-if (Test-Path -Path $dst -PathType Container) {
+if (Test-Path $dst -PathType Container) {
     Write-Host "development.rec.ps1 -- Moving pre-existing destination"
     Move-Item -Path $dst -Destination "$dst.$(Get-Date -UFormat %s)"
 }
 
 Write-Host "development.rec.ps1 -- Restoring data"
 $params = @(
-    '--tag=development'
-    '--verbose'
-    '--target=D:\'
+    "--tag=development"
+    "--verbose"
+    "--target=" + (Split-Path $dst -Parent)
 )
 restic restore latest @params
-if ($?) {
-    Write-Host "development.rec.ps1 -- Data restoration successful"
-
-    Write-Host "development.rec.ps1 -- Moving folder to original location"
-    Move-Item -Path "D:\D\francois" -Destination "D:\" -Force
-    Remove-Item -Path "D:\D"
-} else {
-    Write-Host "development.rec.ps1 -- Data restoration failed"
-    Exit 1
+if (!$?) {
+    Write-Error "development.rec.ps1 -- Data restoration failed"
+    exit 1
 }
+Write-Host "development.rec.ps1 -- Data restoration successful"
 
 Stop-Transcript

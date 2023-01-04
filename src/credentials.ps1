@@ -5,7 +5,7 @@ Write-Host "------------------------------------------"
 . D:\applications\KeePassCommander\KeePassEntry.ps1
 
 $i = 10
-while (-not $creds) {
+while (!$creds) {
     if ($i-- -eq 0) { exit }
     $creds = KeePassEntry "raktar.local - francois"
     Start-Sleep -Seconds 2
