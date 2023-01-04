@@ -43,6 +43,7 @@ $params = @(
     '--verbose'
     '--exclude=.venv'
     '--exclude=node_modules'
+    '--exclude=.git'
     (Split-Path $src -Leaf)
 )
 Push-Location (Split-Path $src -Parent)
