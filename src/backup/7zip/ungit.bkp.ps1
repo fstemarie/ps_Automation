@@ -1,9 +1,14 @@
 $src = "D:\services\ungit"
 $dst = "\\raktar.local\backup\HX90\ungit"
-$arc = Join-Path $dst "ungit.$(Get-Date -Format FileDateTime).7z"
+$arc = "$dst\ungit.$(Get-Date -Format FileDateTime).7z"
+
+if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
+    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    exit 1
+}
 
 $params = @{
-    Path                    = Join-Path $env:AUTOMATION "log" "ungit.7zip.log"
+    Path                    = "$env:AUTOMATION\log\ungit.7zip.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }
@@ -11,9 +16,9 @@ Start-Transcript @params
 
 #-----------------------------------------------------------------------
 # Sauvegarde de la configuration de Ungit sur Raktar
-Write-Host "┌────────────────────────────────────────────────────┐"
-Write-Host "│ Sauvegarde de la configuration de Ungit sur Raktar │"
-Write-Host "└────────────────────────────────────────────────────┘"
+Write-Host "----------------------------------------------------"
+Write-Host " Sauvegarde de la configuration de Ungit sur Raktar "
+Write-Host "----------------------------------------------------"
 
 $params = @(
     "-xr!node_modules"

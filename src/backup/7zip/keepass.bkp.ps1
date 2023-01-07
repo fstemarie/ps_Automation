@@ -1,9 +1,14 @@
 $keepass = "D:\Francois\Documents\KeePass\gdrive - g"
 $dst = "\\raktar.local\backup\HX90\keepass"
-$arc = Join-Path $dst "keepass.$(Get-Date -Format FileDateTime).7z"
+$arc = "$dst\keepass.$(Get-Date -Format FileDateTime).7z"
+
+if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
+    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    exit 1
+}
 
 $params = @{
-    Path                    = Join-Path $env:APPDATA "log" "keepass.7zip.log"
+    Path                    = "$env:AUTOMATION\log\keepass.7zip.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }
@@ -11,9 +16,9 @@ Start-Transcript @params
 
 #-----------------------------------------------------------------------
 # Sauvegarde des documents Keepass sur Raktar
-Write-Host "┌────────────────────────────────────────────┐"
-Write-Host "│ Sauvegarde de la config KeePass sur Raktar │"
-Write-Host "└────────────────────────────────────────────┘"
+Write-Host "--------------------------------------------"
+Write-Host " Sauvegarde de la config KeePass sur Raktar "
+Write-Host "--------------------------------------------"
 
 $params = @(
     "-mx=9"

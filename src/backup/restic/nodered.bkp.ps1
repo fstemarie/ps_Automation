@@ -6,7 +6,7 @@ if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
 }
 
 $params = @{
-    Path                    = Join-Path $env:AUTOMATION "log" "nodered.restic.log"
+    Path                    = "$env:AUTOMATION\log\nodered.restic.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }
@@ -14,9 +14,9 @@ Start-Transcript @params
 
 #----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Storj
-Write-Host "┌──────────────────────────────────────────┐"
-Write-Host "│ Sauvegarde du dossier node-red sur Storj │"
-Write-Host "└──────────────────────────────────────────┘"
+Write-Host "------------------------------------------"
+Write-Host " Sauvegarde du dossier node-red sur Storj "
+Write-Host "------------------------------------------"
 
 if (!(Test-Path env:RESTIC_REPOSITORY)) {
     Write-Host "nodered.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"

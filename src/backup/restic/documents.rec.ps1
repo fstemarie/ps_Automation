@@ -6,7 +6,7 @@ if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
 }
 
 $params = @{
-    Path                    = Join-Path $env:AUTOMATION "log" "documents.restic.log"
+    Path                    = "$env:AUTOMATION\log\documents.restic.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }
@@ -14,9 +14,9 @@ Start-Transcript @params
 
 #----------------------------------------------------------------------
 #region Recuperation du dossier documents sur Storj
-Write-Host "┌───────────────────────────────────────┐"
-Write-Host "│ Restoring documents folder from storj │"
-Write-Host "└───────────────────────────────────────┘"
+Write-Host "---------------------------------------"
+Write-Host " Restoring documents folder from storj "
+Write-Host "---------------------------------------"
 
 if (!(Test-Path env:\RESTIC_REPOSITORY)) {
     Write-Host "documents.rec.ps1 -- RESTIC_REPOSITORY empty"

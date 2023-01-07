@@ -3,18 +3,23 @@ $dst = "\\raktar.local\backup\HX90\development"
 $arc = "$dst\development.7z"
 $inc = "$dst\development.$(Get-Date -Format FileDateTime).7z"
 
+if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
+    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    exit 1
+}
+
 $params = @{
-    Path                    = Join-Path $env:AUTOMATION "log" "development.7zip.log"
+    Path                    = "$env:AUTOMATION\log\development.7zip.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }
-Start-Transcript
+Start-Transcript @params
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Raktar
-Write-Host "┌──────────────────────────────────────────────┐"
-Write-Host "│ Sauvegarde du dossier development sur Raktar │"
-Write-Host "└──────────────────────────────────────────────┘"
+Write-Host "----------------------------------------------"
+Write-Host " Sauvegarde du dossier development sur Raktar "
+Write-Host "----------------------------------------------"
 
 # if the source folder doesn't exist, then there is nothing to backup
 if (!(Test-Path $src)) {
