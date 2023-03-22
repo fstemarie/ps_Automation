@@ -1,14 +1,19 @@
-$src = "D:\services\node-red"
+$src = Join-Path $env:SERVICES "node-red"
 $dst = "\\raktar.local\backup\HX90\nodered"
-$arc = "$dst\nodered.$(Get-Date -Format FileDateTime).7z"
+$arc = Join-Path $dst "nodered.$(Get-Date -Format FileDateTime).7z"
+
+if (!$env:SERVICES -Or !(Test-Path "$env:SERVICES")) {
+    Write-Error "nodered.bkp.ps1 -- %SERVICES% empty or invalid. Cannot proceed"
+    exit 1
+}
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
-    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    Write-Error "nodered.bkp.ps1 -- %AUTOMATION% empty or invalid. Cannot proceed"
     exit 1
 }
 
 $params = @{
-    Path                    = "$env:AUTOMATION\log\nodered.7zip.log"
+    Path                    = Join-Path $env:AUTOMATION "log" "nodered.7zip.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }

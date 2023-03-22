@@ -1,4 +1,4 @@
-$dst = "D:\francois\Documents\Development"
+$dst = ([Environment]::GetFolderPath("MyDocuments")) + "\Development"
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
     Write-Error "development.rec.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
@@ -6,7 +6,7 @@ if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
 }
 
 $params = @{
-    Path                    = "$env:AUTOMATION\log\development.restic.log"
+    Path                    = Join-Path $env:AUTOMATION "log" "development.restic.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }

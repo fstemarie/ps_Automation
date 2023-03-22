@@ -1,7 +1,7 @@
 $dst = "D:\services\node-red"
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
-    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    Write-Error "nodered.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
     exit 1
 }
 

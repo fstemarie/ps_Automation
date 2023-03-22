@@ -3,7 +3,7 @@ $dst = "\\raktar.local\backup\HX90\vimfiles"
 $arc = "$dst\vimfiles.$(Get-Date -Format FileDateTime).7z"
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
-    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    Write-Error "vimfiles.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
     exit 1
 }
 

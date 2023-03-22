@@ -1,12 +1,12 @@
 $src = "D:\Francois\vimfiles"
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
-    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    Write-Error "vimfiles.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
     exit 1
 }
 
 $params = @{
-    Path                    = "$env:AUTOMATION\log\vimfiles.restic.log"
+    Path                    = Join-Path $env:AUTOMATION "log" "vimfiles.restic.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }
@@ -23,7 +23,7 @@ if (!(Test-Path env:RESTIC_REPOSITORY)) {
     exit 1
 }
 
-if (!(Test-Path env:\RESTIC_PASSWORD)) {
+if (!(Test-Path env:RESTIC_PASSWORD)) {
     Write-Host "vimfiles.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
     exit 1
 }

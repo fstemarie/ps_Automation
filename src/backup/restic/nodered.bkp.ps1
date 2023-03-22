@@ -1,12 +1,17 @@
-$src = "D:\services\node-red"
+$src = Join-Path $env:SERVICES "node-red"
+
+if (!$env:SERVICES -Or !(Test-Path "$env:SERVICES")) {
+    Write-Error "nodered.bkp.ps1 -- %SERVICES% empty or invalid. Cannot proceed"
+    exit 1
+}
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
-    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    Write-Error "nodered.bkp.ps1 -- %AUTOMATION% empty or invalid. Cannot proceed"
     exit 1
 }
 
 $params = @{
-    Path                    = "$env:AUTOMATION\log\nodered.restic.log"
+    Path                    = Join-Path $env:AUTOMATION "log" "nodered.restic.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }
@@ -23,7 +28,7 @@ if (!(Test-Path env:RESTIC_REPOSITORY)) {
     exit 1
 }
 
-if (!(Test-Path env:\RESTIC_PASSWORD)) {
+if (!(Test-Path env:RESTIC_PASSWORD)) {
     Write-Host "nodered.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
     exit 1
 }

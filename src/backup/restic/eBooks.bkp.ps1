@@ -1,12 +1,12 @@
 $src = "D:\Francois\eBooks"
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
-    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    Write-Error "eBooks.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
     exit 1
 }
 
 $params = @{
-    Path                    = "$env:AUTOMATION\log\eBooks.restic.log"
+    Path                    = Join-Path $env:AUTOMATION "log" "eBooks.restic.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }
@@ -24,7 +24,7 @@ if (!(Test-Path env:RESTIC_REPOSITORY)) {
     exit 1
 }
 
-if (!(Test-Path env:\RESTIC_PASSWORD)) {
+if (!(Test-Path env:RESTIC_PASSWORD)) {
     Write-Host "eBooks.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
     exit 1
 }

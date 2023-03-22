@@ -1,4 +1,4 @@
-$src = "D:\Francois\Documents"
+$src = ([Environment]::GetFolderPath("MyDocuments"))
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
     Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
@@ -6,7 +6,7 @@ if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
 }
 
 $params = @{
-    Path                    = "$env:AUTOMATION\log\documents.restic.log"
+    Path                    = Join-Path $env:AUTOMATION "log" "documents.restic.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }
@@ -23,7 +23,7 @@ if (!(Test-Path env:RESTIC_REPOSITORY)) {
     exit 1
 }
 
-if (!(Test-Path env:\RESTIC_PASSWORD)) {
+if (!(Test-Path env:RESTIC_PASSWORD)) {
     Write-Host "documents.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"
     exit 1
 }

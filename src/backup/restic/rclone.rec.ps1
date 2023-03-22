@@ -1,12 +1,12 @@
 $dst = "D:\services\rclone"
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
-    Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
+    Write-Error "rclone.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
     exit 1
 }
 
 $params = @{
-    Path                    = "$env:AUTOMATION\log\rclone.restic.log"
+    Path                    = Join-Path $env:AUTOMATION "log" "rclone.restic.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }

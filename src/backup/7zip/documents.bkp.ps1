@@ -1,4 +1,4 @@
-$src = "D:\Francois\Documents"
+$src = ([Environment]::GetFolderPath("MyDocuments"))
 $dst = "\\raktar.local\backup\HX90\documents"
 $arc = "$dst\documents.7z"
 $inc = "$dst\documents.$(Get-Date -Format FileDateTime).7z"

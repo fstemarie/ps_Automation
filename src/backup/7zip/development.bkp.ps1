@@ -1,7 +1,7 @@
-$src = "D:\Francois\Documents\Development"
+$src = Join-Path ([Environment]::GetFolderPath("MyDocuments")) "Development"
 $dst = "\\raktar.local\backup\HX90\development"
-$arc = "$dst\development.7z"
-$inc = "$dst\development.$(Get-Date -Format FileDateTime).7z"
+$arc = Join-Path $dst "development.7z"
+$inc = Join-Path $dst "development.$(Get-Date -Format FileDateTime).7z"
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
     Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
@@ -9,7 +9,7 @@ if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
 }
 
 $params = @{
-    Path                    = "$env:AUTOMATION\log\development.7zip.log"
+    Path                    = Join-Path $env:AUTOMATION "log" "development.7zip.log"
     Append                  = $true
     IncludeInvocationHeader = $true
 }
@@ -35,11 +35,11 @@ if (!(Test-Path $dst)) {
 
 if (Test-Path $arc -PathType Leaf) {
     $params = @(
+        "-mx=9"
         "-u-"
         "-up1q1r3x1y1z0w1!$inc"
         "-xr!node_modules"
         "-xr!.venv"
-        "-mx=9"
         $arc
         $src
     )

@@ -1,5 +1,10 @@
-Write-Host "Deploying scripts to D:\automation"
+Write-Host "Deploying scripts"
 
-Remove-Item -Force -Recurse 'D:\automation\backup' -ErrorAction SilentlyContinue
-Copy-Item -Path (Join-Path 'src' '*.ps1') -Destination 'D:\automation'
-Copy-Item -Path (Join-Path 'src' 'backup') -Destination 'D:\automation' -Recurse
+if (!$env:AUTOMATION) {
+    Write-Error "La variable d'environnement AUTOMATION n'existe pas"
+    exit
+}
+
+Remove-Item -Force -Recurse (Join-Path $env:AUTOMATION "backup") -ErrorAction SilentlyContinue
+Copy-Item -Path (Join-Path 'src' '*.ps1') -Destination $env:AUTOMATION
+Copy-Item -Path (Join-Path 'src' 'backup') -Destination $env:AUTOMATION -Recurse
