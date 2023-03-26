@@ -1,7 +1,2 @@
-$scripts = @(
-)
-
-foreach ($script in $scripts) {
-    Start-Job -Name  $script -FilePath "$PSScriptRoot\$script"
-}
-Get-Job | Receive-Job -Wait
+# & $PSScriptRoot\restic\documents.bkp.ps1
+# restic prune
