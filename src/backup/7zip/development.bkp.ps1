@@ -27,6 +27,8 @@ if (!(Test-Path $src)) {
     exit 1
 }
 
+Write-Host "development.bkp.ps1 -- Source folder: $src"
+
 # if the destination folder does not exist, create it
 if (!(Test-Path $dst)) {
     Write-Host "development.bkp.ps1 -- Creating non-existent destination"

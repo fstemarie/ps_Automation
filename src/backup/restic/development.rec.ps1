@@ -1,4 +1,4 @@
-$dst = ([Environment]::GetFolderPath("MyDocuments")) + "\Development"
+$dst = Join-Path ([Environment]::GetFolderPath("MyDocuments")) "Development"
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
     Write-Error "development.rec.ps1 -- AUTOMATION empty or invalid. Cannot proceed"

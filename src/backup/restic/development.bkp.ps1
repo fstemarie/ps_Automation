@@ -1,4 +1,4 @@
-$src = ([Environment]::GetFolderPath("MyDocuments")) + "Development"
+$src = Join-Path ([Environment]::GetFolderPath("MyDocuments")) "Development"
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
     Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
