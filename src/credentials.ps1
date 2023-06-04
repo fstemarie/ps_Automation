@@ -1,6 +1,6 @@
-Write-Host "------------------------------------------"
-Write-Host "| Preparing credentials for raktar.local |"
-Write-Host "------------------------------------------"
+Write-Host "----------------------------------------"
+Write-Host " Preparing credentials for raktar.local "
+Write-Host "----------------------------------------"
 
 . D:\applications\KeePassCommander\KeePassEntry.ps1
 
@@ -11,13 +11,13 @@ while (!$creds) {
     Start-Sleep -Seconds 2
 }
 
-net use \\raktar.local\audio        /USER:francois $($creds.password)
-net use \\raktar.local\backup       /USER:francois $($creds.password)
-net use \\raktar.local\copper       /USER:francois $($creds.password)
-net use \\raktar.local\elements     /USER:francois $($creds.password)
-net use \\raktar.local\emerald      /USER:francois $($creds.password)
-net use \\raktar.local\mybook       /USER:francois $($creds.password)
-net use \\raktar.local\slim         /USER:francois $($creds.password)
-net use \\raktar.local\storage      /USER:francois $($creds.password)
-net use \\raktar.local\tangerine    /USER:francois $($creds.password)
-net use \\raktar.local\videos       /USER:francois $($creds.password)
+net use \\raktar.local\audio    /USER:francois $($creds.password)
+net use \\raktar.local\backup   /USER:francois $($creds.password)
+net use \\raktar.local\elements /USER:francois $($creds.password)
+net use \\raktar.local\emerald  /USER:francois $($creds.password)
+net use \\raktar.local\jade     /USER:francois $($creds.password)
+net use \\raktar.local\ruby     /USER:francois $($creds.password)
+net use \\raktar.local\sapphire /USER:francois $($creds.password)
+net use \\raktar.local\storage  /USER:francois $($creds.password)
+net use \\raktar.local\ufc      /USER:francois $($creds.password)
+net use \\raktar.local\videos   /USER:francois $($creds.password)
