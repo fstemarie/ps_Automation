@@ -17,6 +17,7 @@ Start-Transcript @params
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Raktar
+Write-Host "`n`n"
 Write-Host "--------------------------------------------"
 Write-Host " Sauvegarde du dossier documents sur Raktar "
 Write-Host "--------------------------------------------"

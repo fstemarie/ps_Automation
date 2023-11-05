@@ -21,6 +21,7 @@ Start-Transcript @params
 
 #-----------------------------------------------------------------------
 # Sauvegarde des documents Keepass sur Raktar
+Write-Host "`n`n"
 Write-Host "--------------------------------------------"
 Write-Host " Sauvegarde de la config KeePass sur Raktar "
 Write-Host "--------------------------------------------"

@@ -16,9 +16,10 @@ Start-Transcript @params
 
 #-----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Raktar
-Write-Host "┌─────────────────────────────────────────┐"
-Write-Host "│ Sauvegarde du dossier eBooks sur Raktar │"
-Write-Host "└─────────────────────────────────────────┘"
+Write-Host "`n`n"
+Write-Host "-----------------------------------------"
+Write-Host " Sauvegarde du dossier eBooks sur Raktar "
+Write-Host "-----------------------------------------"
 
 # robocopy $src $dst /E /FFT /Z /M /SL /SJ /MT /NP /R:10 /W:10 /COPY:DT
 robocopy $src $dst /MIR /FFT /Z /M /SL /SJ /MT /NP /R:10 /W:10 /COPY:DT

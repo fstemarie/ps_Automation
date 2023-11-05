@@ -21,6 +21,7 @@ Start-Transcript @params
 
 #-----------------------------------------------------------------------
 # Sauvegarde de la configuration de Node-RED sur Raktar
+Write-Host "`n`n"
 Write-Host "-------------------------------------------------------"
 Write-Host " Sauvegarde de la configuration de Node-RED sur Raktar "
 Write-Host "-------------------------------------------------------"

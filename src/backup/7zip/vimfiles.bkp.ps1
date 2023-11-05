@@ -16,6 +16,7 @@ Start-Transcript @params
 
 #-----------------------------------------------------------------------
 # Sauvegarde du dossier Services sur Raktar
+Write-Host "`n`n"
 Write-Host "----------------------------------------"
 Write-Host " Sauvegarde de la config Vim sur Raktar "
 Write-Host "----------------------------------------"

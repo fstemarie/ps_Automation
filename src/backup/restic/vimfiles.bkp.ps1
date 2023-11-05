@@ -14,6 +14,7 @@ Start-Transcript @params
 
 #----------------------------------------------------------------------
 #region Sauvegarde du dossier development sur Storj
+Write-Host "`n`n"
 Write-Host "------------------------------------------"
 Write-Host " Sauvegarde du dossier vimfiles sur Storj "
 Write-Host "------------------------------------------"
