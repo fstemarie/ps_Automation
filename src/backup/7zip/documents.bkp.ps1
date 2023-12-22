@@ -1,12 +1,12 @@
-$src = ([Environment]::GetFolderPath("MyDocuments"))
-$dst = "\\raktar.local\backup\HX90\documents"
-$arc = "$dst\documents.7z"
-$inc = "$dst\documents.$(Get-Date -Format FileDateTime).7z"
-
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
     Write-Error "development.bkp.ps1 -- AUTOMATION empty or invalid. Cannot proceed"
     exit 1
 }
+
+$src = ([Environment]::GetFolderPath("MyDocuments"))
+$dst = "\\raktar.local\backup\HX90\documents"
+$arc = "$dst\documents.7z"
+$inc = "$dst\documents.$(Get-Date -Format FileDateTime).7z"
 
 $params = @{
     Path                    = "$env:AUTOMATION\log\documents.7zip.log"
@@ -16,22 +16,27 @@ $params = @{
 Start-Transcript @params
 
 #-----------------------------------------------------------------------
-#region Sauvegarde du dossier documents sur Raktar
+# Backup of the documents folder on raktar
 Write-Host "`n`n"
-Write-Host "--------------------------------------------"
-Write-Host " Sauvegarde du dossier documents sur Raktar "
-Write-Host "--------------------------------------------"
+Write-Host "------------------------------------------"
+Write-Host " Backup of the documents folder on raktar "
+Write-Host "------------------------------------------"
 
 # if the source folder doesn't exist, then there is nothing to backup
-if (!(Test-Path $src)) {
+if (!(Test-Path "$src")) {
     Write-Host "documents.bkp.ps1 -- Source folder does not exist"
-    exit
+    exit 1
 }
 
 # if the destination folder does not exist, create it
-if (!(Test-Path $dst)) {
-    Write-Host "documents.bkp.ps1 -- Creating non-existent destination"
-    New-Item $dst -ItemType Directory
+if (!(Test-Path "$dst")) {
+    Write-Host "documents.bkp.ps1 -- Destination unreachable"
+    exit 1
+}
+
+# Reset backups every first of the month
+if ((Get-Date -Format 'dd') -eq 1) {
+    Remove-Item (Join-Path $dst "*.*")
 }
 
 if (Test-Path $arc -PathType Leaf) {
@@ -44,6 +49,10 @@ if (Test-Path $arc -PathType Leaf) {
         $src
     )
     7z u @params
+    if (!$?) {
+        Write-Error "documents.bkp.ps1 -- Error while creating the archive (incremental file)"
+        exit 1
+    }
 }
 
 # Mise a jour de la sauvegarde complete
@@ -55,6 +64,9 @@ $params = @(
     $src
 )
 7z u @params
-#endregion
+if (!$?) {
+    Write-Error "documents.bkp.ps1 -- Error while updating the main archive"
+    exit 1
+}
 
 Stop-Transcript
