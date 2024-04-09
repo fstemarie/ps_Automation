@@ -24,9 +24,8 @@ function main {
     }
 
     $notifs | curl -T- `
-        --user :tk_nfdourudvnssb58p2oyvuc3hqmxek `
         -H "title: hx90 weekly backup report" `
-        "https://ntfy.falarie.duckdns.org/backup_hx90"
+        ntfy.sh/backup_hx90_CtSuPrvjeCEuckcZ
 }
 
 main
