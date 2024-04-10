@@ -25,7 +25,9 @@ function main {
 
     $notifs | curl -T- `
         -H "title: hx90 weekly backup report" `
-        ntfy.sh/backup_hx90_CtSuPrvjeCEuckcZ
+        -H "priority: low" `
+        -H "markdown: yes" `
+        https://ntfy.sh/backup_CtSuPrvjeCEuckcZ
 }
 
 main
