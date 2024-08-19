@@ -15,9 +15,9 @@ Start-Transcript @params
 #----------------------------------------------------------------------
 #region Sauvegarde du dossier documents sur Storj
 Write-Host "`n`n"
-Write-Host "-------------------------------------------"
-Write-Host " Sauvegarde du dossier documents sur Storj "
-Write-Host "-------------------------------------------"
+Write-Host "--------------------------------------------"
+Write-Host " Backup of the documents folder with restic "
+Write-Host "--------------------------------------------"
 
 if (!(Test-Path env:RESTIC_REPOSITORY)) {
     Write-Host "documents.bkp.ps1 -- RESTIC_REPOSITORY empty. Cannot proceed"

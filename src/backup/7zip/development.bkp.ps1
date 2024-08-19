@@ -47,6 +47,7 @@ if (Test-Path $arc -PathType Leaf) {
         "-up1q1r3x1y1z0w1!$inc"
         "-xr!node_modules"
         "-xr!.venv"
+        "-xr!.git"
         $arc
         $src
     )
