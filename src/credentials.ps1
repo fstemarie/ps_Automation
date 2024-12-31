@@ -13,11 +13,9 @@ while (!$creds) {
 
 net use \\raktar.local\audio    /USER:francois $($creds.password)
 net use \\raktar.local\backup   /USER:francois $($creds.password)
-net use \\raktar.local\cloud    /USER:francois $($creds.password)
-net use \\raktar.local\elements /USER:francois $($creds.password)
 net use \\raktar.local\emerald  /USER:francois $($creds.password)
 net use \\raktar.local\jade     /USER:francois $($creds.password)
 net use \\raktar.local\ruby     /USER:francois $($creds.password)
 net use \\raktar.local\sapphire /USER:francois $($creds.password)
 net use \\raktar.local\storage  /USER:francois $($creds.password)
-net use \\raktar.local\video    /USER:francois $($creds.password)
+net use \\raktar.local\videos    /USER:francois $($creds.password)
