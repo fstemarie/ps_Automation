@@ -7,7 +7,7 @@ Write-Host "----------------------------------------"
 $i = 10
 while (!$creds) {
     if ($i-- -eq 0) { exit }
-    $creds = KeePassEntry "raktar.local - francois"
+    $creds = KeePassEntry "raktar_B362531346"
     Start-Sleep -Seconds 2
 }
 
@@ -18,4 +18,4 @@ net use \\raktar.local\jade     /USER:francois $($creds.password)
 net use \\raktar.local\ruby     /USER:francois $($creds.password)
 net use \\raktar.local\sapphire /USER:francois $($creds.password)
 net use \\raktar.local\storage  /USER:francois $($creds.password)
-net use \\raktar.local\videos    /USER:francois $($creds.password)
+net use \\raktar.local\videos   /USER:francois $($creds.password)
