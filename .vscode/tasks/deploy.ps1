@@ -5,10 +5,8 @@ if (!$env:AUTOMATION) {
     exit
 }
 
-Remove-Item -Force -Recurse (Join-Path $env:AUTOMATION "backup") -ErrorAction SilentlyContinue
-Copy-Item -Path (Join-Path 'src' '*.ps1') -Destination $env:AUTOMATION
-Copy-Item -Path (Join-Path 'src' 'backup') -Destination $env:AUTOMATION -Recurse
-
+Remove-Item -Force -Recurse $env:AUTOMATION -ErrorAction SilentlyContinue
+Copy-Item -Path 'src' -Destination $env:AUTOMATION -Recurse
 
 #--------------------------------------
 #region Task Scheduler
