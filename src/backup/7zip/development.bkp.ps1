@@ -64,6 +64,7 @@ $params = @(
     "-mx=9"
     "-xr!node_modules"
     "-xr!.venv"
+    "-xr!.git"
     $arc
     $src
 )
