@@ -17,7 +17,7 @@ function main {
         -H "title: hx90 monthly backup report" `
         -H "priority: low" `
         -H "markdown: yes" `
-        https://ntfy.sh/backup_CtSuPrvjeCEuckcZ
+        https://ntfy.sh/automation_ewNXGlvorS6g8NUr
 }
 
 main
