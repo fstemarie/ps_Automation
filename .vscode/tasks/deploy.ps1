@@ -21,7 +21,7 @@ $params = @{
 	User = "francois"
 	Trigger = New-ScheduledTaskTrigger -Daily -At 8pm
 	Action = @(
-        New-ScheduledTaskAction -Execute "powershell" -Argument "-NoProfile D:\automation\backup\daily.bkp.ps1"
+        New-ScheduledTaskAction -Execute "pwsh" -Argument "-NoProfile D:\automation\daily.bkp.ps1"
 	)
 }
 Register-ScheduledTask @params -Force
@@ -34,7 +34,7 @@ $params = @{
 	User = "francois"
 	Trigger = New-ScheduledTaskTrigger -Weekly -WeeksInterval 1 -DaysOfWeek Sunday -At 9pm
 	Action = @(
-        New-ScheduledTaskAction -Execute "powershell" -Argument "-NoProfile D:\automation\backup\weekly.bkp.ps1"
+        New-ScheduledTaskAction -Execute "pwsh" -Argument "-NoProfile D:\automation\weekly.bkp.ps1"
 	)
 }
 Register-ScheduledTask @params -Force
@@ -47,7 +47,7 @@ $params = @{
 	User = "francois"
 	Trigger = New-ScheduledTaskTrigger -Weekly -WeeksInterval 4 -DaysOfWeek Sunday -At 10pm
 	Action = @(
-        New-ScheduledTaskAction -Execute "powershell" -Argument "-NoProfile D:\automation\backup\monthly.bkp.ps1"
+        New-ScheduledTaskAction -Execute "pwsh" -Argument "-NoProfile D:\automation\monthly.bkp.ps1"
 	)
 }
 Register-ScheduledTask @params -Force
@@ -63,7 +63,7 @@ $params = @{
 		New-ScheduledTaskTrigger -AtLogOn -User "francois"
 	)
 	Action = @(
-		New-ScheduledTaskAction -Execute "powershell" -Argument "D:\automation\logon.ps1"
+		New-ScheduledTaskAction -Execute "pwsh" -Argument "D:\automation\logon.ps1"
 	)
 }
 Register-ScheduledTask @params -Force
