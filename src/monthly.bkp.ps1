@@ -1,4 +1,7 @@
-$scripts = @()
+$scripts = @(
+    "backup/robocopy/eBooks.bkp.ps1"
+)
+
 $notifs = @()
 
 function main {
