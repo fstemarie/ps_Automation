@@ -41,6 +41,7 @@ $params = @(
     '--tag=documents'
     '--verbose'
     '--exclude=Development'
+    '--exclude=eBooks'
     (Split-Path $src -Leaf)
 )
 Push-Location (Split-Path $src -Parent)

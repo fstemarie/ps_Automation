@@ -44,6 +44,7 @@ if (Test-Path $arc -PathType Leaf) {
         "-u-"
         "-up1q1r3x1y1z0w1!$inc"
         "-xr!Development"
+        "-xr!eBooks"
         "-mx=9"
         $arc
         $src
@@ -59,6 +60,7 @@ if (Test-Path $arc -PathType Leaf) {
 $params = @(
     "-up0q0r2x2y2z1w2"
     "-xr!Development"
+    "-xr!eBooks"
     "-mx=9"
     $arc
     $src
