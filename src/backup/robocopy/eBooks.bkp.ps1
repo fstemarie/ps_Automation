@@ -1,5 +1,5 @@
 # https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy
-$src = "D:\Francois\eBooks"
+$src = "D:\Francois\Documents\eBooks"
 $dst = "\\raktar.local\backup\HX90\eBooks"
 
 if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
