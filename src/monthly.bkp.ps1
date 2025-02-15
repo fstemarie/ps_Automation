@@ -1,5 +1,10 @@
 $scripts = @(
-    "backup/robocopy/eBooks.bkp.ps1"
+    "backup/restic/rclone.bkp.ps1",
+    "backup/restic/vimfiles.bkp.ps1",
+    "backup/robocopy/eBooks.bkp.ps1",
+    "backup/7zip/automation.bkp.ps1",
+    "backup/7zip/rclone.bkp.ps1",
+    "backup/7zip/vimfiles.bkp.ps1"
 )
 
 $notifs = @()
