@@ -3,7 +3,7 @@ if (!$env:AUTOMATION -Or !(Test-Path "$env:AUTOMATION")) {
     exit 1
 }
 
-$src = Join-Path ([Environment]::GetFolderPath("MyDocuments")) "KeePass" "onedrive - o"
+$src = "x:/keepass"
 $dst = "\\raktar.local\backup\HX90\keepass"
 $arc = Join-Path $dst "keepass.$(Get-Date -Format FileDateTime).7z"
 
