@@ -1,21 +1,39 @@
 Write-Host "----------------------------------------"
-Write-Host " Preparing credentials for raktar.local "
+Write-Host " Preparing credentials for sklad "
 Write-Host "----------------------------------------"
 
-. D:\applications\KeePassCommander\KeePassEntry.ps1
+$db = "X:\keepass\Passwords.kdbx"
+$entry = "sklad_B362531346"
 
-$i = 10
-while (!$creds) {
-    if ($i-- -eq 0) { exit }
-    $creds = KeePassEntry "raktar_B362531346"
-    Start-Sleep -Seconds 2
+# This will ALWAYS work if the env var exists (user or machine scope)
+if (-not $env:KEEPASSXC_KEY) {
+    $env:KEEPASSXC_KEY = Read-Host "KeePassXC master password" -AsSecureString | ConvertFrom-SecureString
+    [Environment]::SetEnvironmentVariable("KEEPASSXC_KEY", $env:KEEPASSXC_KEY, "User")
+    Write-Host "Password saved encrypted to permanent user environment variable." -ForegroundColor Green
 }
 
-net use \\raktar.local\audio    /USER:francois $($creds.password)
-net use \\raktar.local\backup   /USER:francois $($creds.password)
-net use \\raktar.local\emerald  /USER:francois $($creds.password)
-net use \\raktar.local\jade     /USER:francois $($creds.password)
-net use \\raktar.local\ruby     /USER:francois $($creds.password)
-net use \\raktar.local\sapphire /USER:francois $($creds.password)
-net use \\raktar.local\storage  /USER:francois $($creds.password)
-net use \\raktar.local\videos   /USER:francois $($creds.password)
+# Decrypt to plaintext (yes, this is the only moment it's plaintext)
+
+# Run the CLI command and capture output
+$pass = (
+    [Runtime.InteropServices.Marshal]::PtrToStringAuto(
+        [Runtime.InteropServices.Marshal]::SecureStringToBSTR(
+            (${env:KEEPASSXC_KEY} | ConvertTo-SecureString)
+        )
+    ) | keepassxc-cli show --attributes password $db $entry 2>$null
+)
+if (! $pass) {
+    Write-Error "Failed to retrieve entry. Wrong password or entry not found."
+}
+
+# Map network drives
+net use \\sklad\emerald  /USER:francois $pass
+net use \\sklad\opal     /USER:francois $pass
+net use \\sklad\ruby     /USER:francois $pass
+net use \\sklad\sapphire /USER:francois $pass
+net use \\sklad\topaz    /USER:francois $pass
+net use \\sklad\cloud    /USER:francois $pass
+net use \\sklad\audio    /USER:francois $pass
+net use \\sklad\backup   /USER:francois $pass
+net use \\sklad\storage  /USER:francois $pass
+net use \\sklad\video    /USER:francois $pass
